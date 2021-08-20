@@ -1,0 +1,107 @@
+//
+//  Common Styles
+// ________________
+
+& when (@media-common = true) {
+
+  .catalog-product-view {
+    float: left;
+    width: 100%;
+    height: auto;
+
+    #sticky-top-bar {
+      background: @color-gray94;
+      position: relative;
+      z-index: 9999;
+      margin: auto;
+      box-sizing: border-box;
+      transform: translateY(-81px);
+      transition: transform 0.4s ease 0s;
+      -webkit-transition: transform 0.4s ease 0s;
+      -moz-transition: transform 0.4s ease 0s;
+
+      .container {
+        max-width: 1280px;
+        margin: auto;
+        padding: 10px 20px 10px 20px;
+        display: none;
+      }
+
+      &._sticky {
+        transform: translateY(0);
+
+        .container {
+          display: block;
+        }
+      }
+    }
+
+    .sticky-top-header-inner {
+      display: flex;
+      justify-content: space-between;
+
+      .header-col-left,
+      .header-col-right {
+        display: flex;
+        align-items: center;
+      }
+
+      .header-col-right {
+        #productaddtocart {
+          min-width: 150px;
+          padding: 10px 15px;
+          margin-left: 20px;
+        }
+      }
+
+      .header-col-left {
+        .product-image {
+          margin-right: 15px;
+        }
+
+        .product-name {
+          font-size: 18px;
+          font-weight: bold;
+        }
+
+        .sale-block {
+          margin-bottom: 0;
+          position: relative;
+          padding: 0 5px;
+          border-radius: 3px;
+          border: 3px solid @color-lightgray;
+          display: inline-block;
+
+          &:after {
+            position: absolute;
+            content: "";
+            font-size: 50px;
+            color: @color-white;
+            width: 100%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            height: 100%;
+            left: 50%;
+            top: 50%;
+            z-index: -1;
+            background: @color-lightgray;
+          }
+        }
+      }
+
+      .product-price {
+        font-size: 18px;
+      }
+    }
+  }
+}
+
+//
+//  Mobile View Styles
+// ___________________
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m){
+  .catalog-product-view #sticky-top-bar._sticky {
+    display: none;
+  }
+}

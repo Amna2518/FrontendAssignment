@@ -1,0 +1,24 @@
+Featured Products Page,featured-products-page,"<div class=""block-title-main"">
+   <h2>Featured Products</h2>
+</div>
+
+<div class=""widget-product-grid"">
+{{widget type=""Magento\CatalogWidget\Block\Product\ProductsList"" show_pager=""0"" products_count=""5"" template=""Magento_CatalogWidget::product/widget/content/grid.phtml"" conditions_encoded=""^[`1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Combine`,`aggregator`:`all`,`value`:`1`,`new_child`:``^],`1--1`:^[`type`:`Magento||CatalogWidget||Model||Rule||Condition||Product`,`attribute`:`category_ids`,`operator`:`==`,`value`:`23`^]^]""}}
+</div>
+
+
+<script>
+require([
+    'jquery',
+    'maxHeight', 
+    'domReady!'
+], function ($) {
+
+  setTimeout(function() {  
+     $("".widget-product-grid li"").equalHeight();
+  }, 1500);
+
+});
+
+</script> "
+Product Sale Block,product-sale-block,"<p class=""sale-block"">Available on Sale 50% off</p>"

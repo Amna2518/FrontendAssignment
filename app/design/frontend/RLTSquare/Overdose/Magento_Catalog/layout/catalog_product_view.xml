@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="root">
+            <block class="Magento\Catalog\Block\Product\View" name="product.sticky" before="-" template="Magento_Catalog::data.phtml">
+                <block class="Magento\Cms\Block\Block" name="sales.block">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">product-sale-block</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

@@ -1,0 +1,41 @@
+<?php
+/**
+ * @var $escaper Magento\Framework\Escaper
+ * @var $block \Magento\Catalog\Block\Product\View
+ * @var $context Magento\Framework\App\Action\Context;
+ */
+$product = $block->getProduct();
+$imageUrl = $this->helper('Magento\Catalog\Helper\Image')->init($product, 'product_base_image')->constrainOnly(true)->keepAspectRatio(true)->keepTransparency(true)->keepFrame(false)->resize(56, 56)->getUrl();
+?>
+<div id="sticky-top-bar" data-mage-init='{"sticky":{"container": "body"}}'>
+    <div  class="container">
+        <div class="sticky-top-header-inner">
+            <div class="header-col-left">
+                <div class="product-image"><img src="<?= $escaper->escapeUrl($imageUrl) ?>" alt="product-image"></div>
+                <div class="product-detail">
+                    <span class="product-name"><?php echo $product->getName() ?></span>
+                    <?php echo $block->getChildHtml('sales.block'); ?>
+                </div>
+            </div>
+            <div class="header-col-right">
+                <span class="product-price">$<?php echo $product->getFinalPrice() ?></span>
+                <div class="product-add-form product-add-to-cart">
+                    <button type="submit" title="<?php echo $escaper->escapeHtml(__('Add to Cart')); ?>" class="action primary tocart" id="productaddtocart">
+                        <span><?php echo __('Add to Cart') ?></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#productaddtocart": {
+            "js/scroll": {}
+        }
+    }
+</script>
+
+
+

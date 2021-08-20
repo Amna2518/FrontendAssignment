@@ -1,0 +1,130 @@
+//
+//  Common Styles
+// ________________
+
+& when (@media-common = true) {
+
+  .cms-products-listing-page #maincontent {
+    padding: 0 20px;
+
+    .block-title-main h2 {
+      font-size: 24px;
+      line-height: 30px;
+      text-align: center;
+      margin: 0 auto 30px;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .products-grid {
+      .product-item-info {
+        margin: 0;
+        padding: 9px;
+
+        .rating-summary .rating-result {
+          & > span:before {
+            font-size: 14px;
+            color: @color-darkgray;
+          }
+
+          &:before {
+            font-size: 14px;
+          }
+        }
+
+        .action.tocart.primary {
+          color: @color-black;
+          background: @color-gray-light01;
+          border-color: @color-gray-light01;
+          .transition (0.8s);
+        }
+
+        .product-item-actions .actions-secondary {
+          visibility: hidden;
+          opacity: 0;
+          .transition (0.8s);
+        }
+
+        .price-label {
+          display: none;
+        }
+
+        &:not(:hover):not(.active) .product-item-inner {
+          height: auto;
+          overflow: visible;
+          position: static;
+          width: auto;
+        }
+
+        &:hover,
+        &.active {
+          box-shadow: none;
+          border: none;
+          margin: 0;
+        }
+
+        .product-item-inner {
+          border: 0;
+          padding: 0;
+          position: static;
+          margin: 0;
+          box-shadow: none;
+        }
+
+        .reviews-actions {
+          display: none;
+        }
+      }
+
+      .product-item .product-image-wrapper {
+        overflow: hidden;
+
+        img {
+          .transition (1s);
+        }
+      }
+
+      .product-item:hover {
+        .product-item-info .product-item-link {
+          text-decoration: none;
+        }
+
+        .product-image-container {
+          position: relative;
+          .transition (1s);
+
+          &:after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0.3;
+            background-color: @color-black;
+            z-index: 100;
+          }
+        }
+
+        .product-image-wrapper img {
+          transform: scale(1.06);
+        }
+
+        .action.primary,
+        .action-primary {
+          background: @color-gray-middle4;
+          border-color: @color-gray-middle4;
+
+          span {
+            color: @color-white;
+          }
+        }
+
+        .product-item-actions .actions-secondary {
+          opacity: 1;
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
